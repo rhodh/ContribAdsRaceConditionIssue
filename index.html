@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <script  src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Videojs -->
+  <link href="//vjs.zencdn.net/7.2/video-js.min.css" rel="stylesheet">
+  <script src="//vjs.zencdn.net/7.2/video.min.js"></script>
+
+   <!-- Dash.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dashjs/2.9.1/dash.all.debug.js"></script>
+
+  <!-- videojs-contrib-dash script -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-dash/2.10.0/videojs-dash.js"></script>
+
+  <!-- Demo Scripts-->
+  <script src="main.js"></script>
+  
+  <!-- IMA Scripts & Stylesheets-->
+  <script src="//imasdk.googleapis.com/js/sdkloader/ima3.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/videojs-contrib-ads@6.4.1/dist/videojs-contrib-ads.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/videojs-contrib-ads@6.4.1/dist/videojs-contrib-ads.css" />
+  <script src="https://cdn.jsdelivr.net/npm/videojs-ima@1.5.1/dist/videojs.ima.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/videojs-ima@1.5.1/dist/videojs.ima.css" />
+
+</head>
+
+<body>
+  <h1>
+    <center> Videojs-Contrib-Ads race condition defect</center>
+  </h1>
+  <div style="width: 70%;margin:auto">
+    <video class="video-js vjs-default-skin vjs-16-9" id="videoPlayer" controls crossorigin="anonymous"></video>
+  </div>
+  
+  <br>
+  <center>
+    <button type="button" onclick="playStreamOne();">Stream One</button>
+    <button type="button" onclick="playStreamTwo();">Stream Two</button>
+  </center>
+
+  <br>
+  <center>
+    <span>Zap between the two streams until the stream hangs while seeking.</span>
+    <br>
+    <span>You can also see in the console log that on each zap we get <i>"Caught pending play exception - continuing (AbortError: The play() request was interrupted by a call to pause(). https://goo.gl/LdLk22)"</i></span>
+  </center>
+  <body>
+
+</html>
